@@ -153,3 +153,4 @@ buildvariants:
     - name: failing_test
     - name: timeout_test
     - name: another_fails
+    - name: s3putAndGet
