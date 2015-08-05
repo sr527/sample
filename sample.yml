@@ -107,6 +107,7 @@ tasks:
         script: |
            echo "this is going too timeout"          
            ./run.py timeout
+           
 - name: s3putAndGet
   depends_on:
   - name: compile
@@ -135,8 +136,6 @@ tasks:
           bucket: ${push_destination_bucket}
           path: ${push_path}/${push_name}/test.tgz
         display_name: test_copy
-        build_variants:
-        - linux-64
 
 
 buildvariants:
