@@ -107,12 +107,10 @@ tasks:
         script: |
            echo "this is going too timeout"          
            ./run.py timeout
-           
+
 - name: s3putAndGet
   depends_on:
   - name: compile
-  command: 
-- name: push
   commands:
   - command: s3.put 
     params:
