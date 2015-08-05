@@ -88,6 +88,13 @@ tasks:
     - func: "fetch source"
     - func: "run a task that fails"
 
+- name: another_fails
+  depends_on: 
+  - name: compile
+  commands:
+    - func: "fetch source"
+    - func: "run a task that fails"
+
 - name: timeout_test
   depends_on: 
   - name: compile
@@ -100,6 +107,36 @@ tasks:
         script: |
            echo "this is going too timeout"          
            ./run.py timeout
+- name: s3putAndGet
+  depends_on:
+  - name: compile
+  command: 
+- name: push
+  commands:
+  - command: s3.put 
+    params:
+      aws_key: ${aws_key}
+      aws_secret: ${aws_secret}
+      local_file: testdata/test.tgz
+      remote_file: ${push_path}/test.tgz
+      bucket: ${push_source_bucket}
+      permissions: public-read-write
+      content_type: application/tar
+      display_name: test_copy
+  - command: s3Copy.copy
+    params:
+      aws_key: ${aws_key}
+      aws_secret: ${aws_secret}
+      s3_copy_files:
+      - source:
+          bucket: ${push_source_bucket}
+          path: ${push_path}/test.tgz
+        destination:
+          bucket: ${push_destination_bucket}
+          path: ${push_path}/${push_name}/test.tgz
+        display_name: test_copy
+        build_variants:
+        - linux-64
 
 
 buildvariants:
@@ -115,3 +152,4 @@ buildvariants:
     - name: passing_test
     - name: failing_test
     - name: timeout_test
+    - name: another_fails
