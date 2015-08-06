@@ -50,11 +50,19 @@ pre:
     script: |
       rm -rf src || true
       echo "pre-task run. JUST ONE COMMAND"
+  
+  - command: shell.exec
+    params:
+      silent: true
+      script: |
+        echo "building creds file!"
+        cat > creds.yml <<END_OF_CREDS
 
-      providers:
+        providers:
           aws:
             aws_id: "${aws_key}"
             aws_secret: "${aws_secret}"
+        END_OF_CREDS
 
 post:
   - command: shell.exec
