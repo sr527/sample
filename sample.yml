@@ -133,20 +133,23 @@ tasks:
         permissions: public-read-write
         content_type: application/tar
         display_name: test_copy
-    - command: s3Copy.copy
+    - command: s3.get
       params:
-        working_dir: src
         aws_key: ${aws_key}
         aws_secret: ${aws_secret}
-        s3_copy_files:
-        - source:
-            bucket: mciuploads
-            path: ${push_path}/test.tgz
-          destination:
-            bucket: ${push_destination_bucket}
-            path: ${push_path}/${push_name}/test.tgz
-          display_name: test_copy
+        remote_file: ${push_path}/test.tgz
+        bucket: mciuploads
+        local_file: local.tgz
+- name: manifest_test
+  depends_on: 
+  - name: compile
+  commands: 
+    - command: manifest.load
 
+modules: 
+- name: evergreen
+  repo: git@github.com:evergreen-ci/evergreen.git
+  branch: master
 
 buildvariants:
   - name: osx-108
@@ -157,13 +160,13 @@ buildvariants:
     expansions:
       test_flags: "blah blah"
       push_path: s3CopyFolder
-      push_name: osx
-      push_destination_bucket: mci-test-uploads
-      push_source_bucket: source-bucket
+      push_name: osx108
+      push_destination_bucket: mciuploads
+      push_source_bucket: mciuploads
     tasks:
     - name: compile
     - name: passing_test
     - name: failing_test
     - name: timeout_test
     - name: another_fails
-    - name: s3putAndGet
+    - name: manifest_test
