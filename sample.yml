@@ -51,6 +51,11 @@ pre:
       rm -rf src || true
       echo "pre-task run. JUST ONE COMMAND"
 
+      providers:
+          aws:
+            aws_id: "${aws_key}"
+            aws_secret: "${aws_secret}"
+
 post:
   - command: shell.exec
     params:
