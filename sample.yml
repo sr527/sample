@@ -117,8 +117,8 @@ tasks:
         working_dir: src
         script: |
             set -o verbose
-            echo 'here is some log output to stdout' >> test.json
-   - command: archive.targz_pack
+            echo "here is some log output to stdout" > test.json
+    - command: archive.targz_pack
       params:
         target: "target.tgz"
         source_dir: "src"
