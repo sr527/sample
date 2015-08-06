@@ -45,12 +45,12 @@ functions:
         echo "I was called with ${foobar}"
 
 pre:
-  command: shell.exec
-  params:
-    script: |
-      rm -rf src || true
-      echo "pre-task run. JUST ONE COMMAND"
-  
+  - command: shell.exec
+    params:
+      script: |
+        rm -rf src || true
+        echo "pre-task run. JUST ONE COMMAND"
+    
   - command: shell.exec
     params:
       silent: true
