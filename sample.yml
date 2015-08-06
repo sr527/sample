@@ -158,8 +158,8 @@ buildvariants:
       test_flags: "blah blah"
       push_path: s3CopyFolder
       push_name: osx
-      push_destination_bucket: mciuploads
-      push_source_bucket: sourceBucket
+      push_destination_bucket: mci-test-uploads
+      push_source_bucket: source-bucket
     tasks:
     - name: compile
     - name: passing_test
