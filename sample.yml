@@ -112,11 +112,12 @@ tasks:
   depends_on:
   - name: compile
   commands:
+
   - command: s3.put 
     params:
       aws_key: ${aws_key}
       aws_secret: ${aws_secret}
-      local_file: src/test.tgz
+      local_file: test.tgz
       remote_file: ${push_path}/test.tgz
       bucket: ${push_source_bucket}
       permissions: public-read-write
@@ -124,6 +125,7 @@ tasks:
       display_name: test_copy
   - command: s3Copy.copy
     params:
+      working_dir: src
       aws_key: ${aws_key}
       aws_secret: ${aws_secret}
       s3_copy_files:
