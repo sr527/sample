@@ -114,7 +114,6 @@ tasks:
   commands:
     - command: shell.exec
       params:
-        working_dir: src
         script: |
             set -o verbose
             echo "here is some log output to stdout" > test.json
