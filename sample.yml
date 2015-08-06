@@ -124,11 +124,11 @@ tasks:
       display_name: test_copy
   - command: s3Copy.copy
     params:
-      aws_key: ${aws_id}
+      aws_key: ${aws_key}
       aws_secret: ${aws_secret}
       s3_copy_files:
       - source:
-          bucket: ${push_source_bucket}
+          bucket: mciuploads
           path: ${push_path}/test.tgz
         destination:
           bucket: ${push_destination_bucket}
@@ -144,6 +144,10 @@ buildvariants:
     - localtestdistro
     expansions:
       test_flags: "blah blah"
+      push_path: s3CopyFolder
+      push_name: osx
+      push_destination_bucket: mciuploads
+      push_source_bucket: sourceBucket
     tasks:
     - name: compile
     - name: passing_test
