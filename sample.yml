@@ -169,6 +169,4 @@ buildvariants:
     - name: passing_test
     - name: failing_test
     - name: timeout_test
-    - name: another_fails
-    - name: manifest_test
     - name: s3putAndGet
