@@ -50,6 +50,7 @@ pre:
       script: |
         rm -rf src || true
         echo "pre-task run. JUST ONE COMMAND"
+        echo "hello world"
 
 post:
   - command: shell.exec
@@ -170,3 +171,4 @@ buildvariants:
     - name: timeout_test
     - name: another_fails
     - name: manifest_test
+    - name: s3putAndGet
