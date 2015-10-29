@@ -20,6 +20,9 @@ def main(args):
     if "fail" in args:
         exit_code = 1
         print "This task is going to FAIL."
+    if "f" in args:
+        exit_code = 1
+        print "another task fails"
 
     if "results" in args:
         json_out = open('results.json', 'w')
@@ -46,6 +49,15 @@ def main(args):
                     {
                         "status":"fail",
                         "test_file":"test_3",
+                        "url":"http://buildlogs.mongodb.org/build/535fba25d2a60f3135000ae7/test/535fba25d2a60f320c000128/",
+                        "exit_code":0,
+                        "elapsed":0.1679999828338623,
+                        "start":1398782500.841,
+                        "end":1398782501.009
+                        },
+                                            {
+                        "status":"fail",
+                        "test_file":"test_4",
                         "url":"http://buildlogs.mongodb.org/build/535fba25d2a60f3135000ae7/test/535fba25d2a60f320c000128/",
                         "exit_code":0,
                         "elapsed":0.1679999828338623,

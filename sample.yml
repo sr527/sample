@@ -43,6 +43,15 @@ functions:
       working_dir: src
       script: |
         echo "I was called with ${foobar}"
+        
+  "run another task that fails": 
+    command: shell.exec
+    params:
+      working_dir: src
+      script: |
+        echo "this is a function with only a single command to run!"
+        ./run.py results f
+
 
 pre:
   - command: shell.exec
