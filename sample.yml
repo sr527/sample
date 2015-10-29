@@ -43,7 +43,7 @@ functions:
       working_dir: src
       script: |
         echo "I was called with ${foobar}"
-        
+
   "run another task that fails": 
     command: shell.exec
     params:
@@ -103,7 +103,7 @@ tasks:
   - name: compile
   commands:
     - func: "fetch source"
-    - func: "run a task that fails"
+    - func: "run another task that fails"
 
 - name: timeout_test
   depends_on: 
