@@ -48,7 +48,7 @@ def main(args):
                         },
                     {
                         "status":"fail",
-                        "test_file":"test_3",
+                        "test_file":"with/slash/test_3",
                         "url":"http://buildlogs.mongodb.org/build/535fba25d2a60f3135000ae7/test/535fba25d2a60f320c000128/",
                         "exit_code":0,
                         "elapsed":0.1679999828338623,
