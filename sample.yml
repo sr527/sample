@@ -35,7 +35,7 @@ functions:
     params:
       working_dir: src
       script: |
-        ./run.py results pass
+        ./run.py results fail
 
   "run a function with an arg":
     command: shell.exec
