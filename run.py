@@ -29,7 +29,7 @@ def main(args):
         out_results = {
                 "results":[
                     {
-                        "status":"pass",
+                        "status":"fail",
                         "test_file":"test_1",
                         "url":"http://buildlogs.mongodb.org/build/535fba25d2a60f3135000ae7/test/535fba25d2a60f32300000b7/",
                         "exit_code":0,
