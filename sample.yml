@@ -51,7 +51,7 @@ functions:
       working_dir: src
       script: |
         echo "this is a function with only a single command to run!"
-        ./run.py results pass
+        ./run.py results fail
 
 
 pre:
