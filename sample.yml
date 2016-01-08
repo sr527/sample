@@ -36,7 +36,7 @@ functions:
     params:
       working_dir: src
       script: |
-        ./run.py results fail
+        ./run.py results pass
 
   "run a function with an arg":
     command: shell.exec
@@ -51,7 +51,7 @@ functions:
       working_dir: src
       script: |
         echo "this is a function with only a single command to run!"
-        ./run.py results f
+        ./run.py results pass
 
 
 pre:
