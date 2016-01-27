@@ -116,9 +116,14 @@ tasks:
       params:
         working_dir: src
         script: |
-           echo "this is going too timeout"          
+           echo "this is going to timeout"          
            ./run.py timeout
-
+- name: patch
+  depends_on:
+    - name: compile
+  commands:
+    - func: "fetch source"
+    - func: "run a task that passes"
 - name: s3putAndGet
   depends_on:
   - name: compile
@@ -177,6 +182,4 @@ buildvariants:
     tasks:
     - name: compile
     - name: passing_test
-    - name: failing_test
-    - name: timeout_test
-    - name: s3putAndGet
+    - name: patch
