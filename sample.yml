@@ -50,7 +50,7 @@ functions:
     params:
       working_dir: src
       script: |
-        echo "this is a function with only a single command to run!"
+        echo "this is a function with only one single command to run!"
         ./run.py results fail
 
 
