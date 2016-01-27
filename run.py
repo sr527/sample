@@ -38,7 +38,7 @@ def main(args):
                         "end":1398782500.681
                         },
                     {
-                        "status":"fail",
+                        "status":"pass",
                         "test_file":"test_2",
                         "url":"http://buildlogs.mongodb.org/build/535fba25d2a60f3135000ae7/test/535fba25d2a60f320c000127/",
                         "exit_code":0,
