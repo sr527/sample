@@ -52,6 +52,11 @@ functions:
       script: |
         echo "this is a function with only one single command to run!"
         ./run.py results fail
+  "run a task that stores the dashboard":
+    command: json.send
+    params: 
+      name: "dashboard"
+      file: "testdata/dashboard.json"
 
 
 pre:
@@ -161,6 +166,11 @@ tasks:
   - name: compile
   commands: 
     - command: manifest.load
+- name: json_test
+  depends_on:
+  - name: compile
+  commands: 
+  - func: "run a task that stores the dashboard"
 
 modules: 
 - name: evergreen
@@ -182,3 +192,4 @@ buildvariants:
     tasks:
     - name: compile
     - name: passing_test
+    - name: json_test
