@@ -172,6 +172,12 @@ tasks:
   commands: 
   - func: "run a task that stores the dashboard"
 
+- name: json_test2
+  depends_on:
+  - name: compile
+  commands: 
+  - func: "run a task that stores the dashboard"
+
 modules: 
 - name: evergreen
   repo: git@github.com:evergreen-ci/evergreen.git
@@ -193,3 +199,4 @@ buildvariants:
     - name: compile
     - name: passing_test
     - name: json_test
+    - name: json_test2
