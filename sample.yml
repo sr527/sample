@@ -213,3 +213,4 @@ buildvariants:
     - name: passing_test
     - name: json_test
     - name: json_test2
+    - name: json_test3
