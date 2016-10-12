@@ -56,13 +56,13 @@ functions:
     command: json.send
     params: 
       name: "dashboard"
-      file: "testdata/dashboard.json"
+      file: "../testdata/dashboard.json"
       
   "run a task that stores passing dashboard":
     command: json.send
     params: 
       name: "dashboard"
-      file: "testdata/passing.json"
+      file: "../testdata/passing.json"
 
 
 
@@ -188,8 +188,17 @@ tasks:
 - name: json_test3
   depends_on:
   - name: compile
+  - name: json_test2
   commands: 
   - func: "run a task that stores passing dashboard"
+
+- name: json_test4
+  depends_on:
+  - name: compile
+  - name: json_test3
+  commands: 
+  - func: "run a task that stores the dashboard"
+
 
 modules: 
 - name: evergreen
@@ -213,3 +222,4 @@ buildvariants:
     - name: passing_test
     - name: json_test2
     - name: json_test3
+    - name: json_test4
