@@ -203,7 +203,7 @@ tasks:
 modules: 
 - name: evergreen
   repo: git@github.com:evergreen-ci/evergreen.git
-  branch: master
+  branch: unstable
 
 buildvariants:
   - name: osx-108
