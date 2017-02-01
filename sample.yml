@@ -63,6 +63,15 @@ functions:
     params: 
       name: "dashboard"
       file: "../testdata/passing.json"
+  "run a task with a lot of lines":
+    command: shell.exec
+    params: 
+      working_dir: src
+      script: |
+        echo "hello\n"
+        echo "world"
+        echo "echo"
+        echo "is this gonna work"
 
 
 
@@ -103,6 +112,22 @@ tasks:
   commands:
     - func: "fetch source"
     - func: "run a task that passes"
+    - func: "run a function with an arg"
+      vars:
+        foobar: "TESTING: TWO"
+    - func: "run a function with an arg"
+      vars:
+        foobar: "TESTING: TWO" 
+    - func: "run a function with an arg"
+      vars:
+        foobar: "TESTING: TWO"
+    - func: "run a task with a lot of lines"
+    - func: "run a task with a lot of lines"
+    - func: "run a task with a lot of lines" 
+    - func: "run a task with a lot of lines" 
+    - func: "run a task with a lot of lines"
+    - func: "run a task with a lot of lines"
+
 
 - name: failing_test 
   depends_on: 
